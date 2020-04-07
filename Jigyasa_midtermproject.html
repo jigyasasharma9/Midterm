@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jigyasa Sharma" />
+  <meta name="dcterms.date" content="2020-03-18" />
+  <title>Data Breaches: Making a Case for Data Security</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="Jigyasa_midtermproject_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="Jigyasa_midtermproject_files/reveal.js-3.3.0.1/css/theme/serif.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <script src="Jigyasa_midtermproject_files/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+    <script src="Jigyasa_midtermproject_files/plotly-binding-4.9.1/plotly.js"></script>
+    <script src="Jigyasa_midtermproject_files/typedarray-0.1/typedarray.min.js"></script>
+    <script src="Jigyasa_midtermproject_files/jquery-1.11.3/jquery.min.js"></script>
+    <link href="Jigyasa_midtermproject_files/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+    <script src="Jigyasa_midtermproject_files/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+    <link href="Jigyasa_midtermproject_files/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
+    <script src="Jigyasa_midtermproject_files/plotly-main-1.49.4/plotly-latest.min.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Data Breaches: Making a Case for Data Security</h1>
+    <h2 class="author"><small><em>Jigyasa Sharma</em></small></h2>
+    <h3 class="date"><small><em>18 March 2020</em></small></h3>
+</section>
+
+<section id="presentation-outline" class="slide level2">
+<h2>Presentation Outline</h2>
+<ul>
+<li><p>Variables of Interest</p></li>
+<li><p>Trends in Data Breaches 2004 - 2018</p></li>
+<li><p>Percent of Data Breaches by Sectors</p></li>
+<li><p>Sectors and Data Types</p></li>
+<li><p>Data and Leak Types</p></li>
+<li><p>Breaches in Sectors by Leak Types</p></li>
+</ul>
+</section>
+<section id="variables-of-interest" class="slide level2">
+<h2>Variables of Interest</h2>
+<ul>
+<li><p>Records Stolen</p></li>
+<li><p>Leak Methods –&gt; Categorised into 2 Leak Types</p></li>
+<li><p>Organisations –&gt; Categorised into 10 Sectors</p></li>
+<li><p>Data Sensitivity –&gt; Categorised into 5 Datatypes</p></li>
+</ul>
+</section>
+<section id="trends-in-data-breaches-2004---2018" class="slide level2">
+<h2>Trends in Data Breaches (2004 - 2018)</h2>
+<p><img data-src="figz.gif" alt="Trends in Data Breaches" /></p>
+</section>
+<section id="percent-of-data-breaches-by-sectors" class="slide level2">
+<h2>Percent of Data Breaches by Sectors</h2>
+<h4 id="web-government-and-financial-accounted-for-around-97-percent-of-the-data-breaches-from-2004-to-2018"><small><strong>Web, Government and Financial</strong> accounted for around <strong>97</strong> percent of the data breaches from 2004 to 2018 </small></h4>
+<div id="htmlwidget-9433c1ef644d42584029" style="width:768px;height:576px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9433c1ef644d42584029">{"x":{"data":[{"x":[0.05,0,null,0.1,0,null,6.69,0,null,19.42,0,null,1.15,0,null,0.09,0,null,2.74,0,null,0.66,0,null,0.03,0,null,69.07,0],"y":[2,2,null,4,4,null,8,8,null,9,9,null,6,6,null,3,3,null,7,7,null,5,5,null,1,1,null,10,10],"text":["sector:  2<br />yend: 0<br />reorder(sector, percent_share): Academic<br />percent_share:  0.05","sector:  2<br />yend: 0<br />reorder(sector, percent_share): Academic<br />percent_share:  0.05",null,"sector:  4<br />yend: 0<br />reorder(sector, percent_share): Energy<br />percent_share:  0.10","sector:  4<br />yend: 0<br />reorder(sector, percent_share): Energy<br />percent_share:  0.10",null,"sector:  8<br />yend: 0<br />reorder(sector, percent_share): Financial<br />percent_share:  6.69","sector:  8<br />yend: 0<br />reorder(sector, percent_share): Financial<br />percent_share:  6.69",null,"sector:  9<br />yend: 0<br />reorder(sector, percent_share): Government<br />percent_share: 19.42","sector:  9<br />yend: 0<br />reorder(sector, percent_share): Government<br />percent_share: 19.42",null,"sector:  6<br />yend: 0<br />reorder(sector, percent_share): Healthcare<br />percent_share:  1.15","sector:  6<br />yend: 0<br />reorder(sector, percent_share): Healthcare<br />percent_share:  1.15",null,"sector:  3<br />yend: 0<br />reorder(sector, percent_share): Legal<br />percent_share:  0.09","sector:  3<br />yend: 0<br />reorder(sector, percent_share): Legal<br />percent_share:  0.09",null,"sector:  7<br />yend: 0<br />reorder(sector, percent_share): Retail<br />percent_share:  2.74","sector:  7<br />yend: 0<br />reorder(sector, percent_share): Retail<br />percent_share:  2.74",null,"sector:  5<br />yend: 0<br />reorder(sector, percent_share): Telecoms<br />percent_share:  0.66","sector:  5<br />yend: 0<br />reorder(sector, percent_share): Telecoms<br />percent_share:  0.66",null,"sector:  1<br />yend: 0<br />reorder(sector, percent_share): Transport<br />percent_share:  0.03","sector:  1<br />yend: 0<br />reorder(sector, percent_share): Transport<br />percent_share:  0.03",null,"sector: 10<br />yend: 0<br />reorder(sector, percent_share): Web<br />percent_share: 69.07","sector: 10<br />yend: 0<br />reorder(sector, percent_share): Web<br />percent_share: 69.07"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.05,0.1,6.69,19.42,1.15,0.09,2.74,0.66,0.03,69.07],"y":[2,4,8,9,6,3,7,5,1,10],"text":["reorder(sector, percent_share): Academic<br />percent_share:  0.05","reorder(sector, percent_share): Energy<br />percent_share:  0.10","reorder(sector, percent_share): Financial<br />percent_share:  6.69","reorder(sector, percent_share): Government<br />percent_share: 19.42","reorder(sector, percent_share): Healthcare<br />percent_share:  1.15","reorder(sector, percent_share): Legal<br />percent_share:  0.09","reorder(sector, percent_share): Retail<br />percent_share:  2.74","reorder(sector, percent_share): Telecoms<br />percent_share:  0.66","reorder(sector, percent_share): Transport<br />percent_share:  0.03","reorder(sector, percent_share): Web<br />percent_share: 69.07"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(255,165,0,1)","opacity":1,"size":17.007874015748,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(255,165,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":25.7412480974125,"r":7.30593607305936,"b":39.6955859969559,"l":69.4063926940639},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.4535,72.5235],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[4.44089209850063e-16,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Percent Share","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,10.6],"tickmode":"array","ticktext":["Transport","Academic","Legal","Energy","Telecoms","Healthcare","Retail","Financial","Government","Web"],"tickvals":[1,2,3,4,5,6,7,8,9,10],"categoryorder":"array","categoryarray":["Transport","Academic","Legal","Energy","Telecoms","Healthcare","Retail","Financial","Government","Web"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"aaf77be4942c":{"xend":{},"yend":{},"x":{},"y":{},"type":"scatter"},"aaf75bbc143f":{"x":{},"y":{}}},"cur_data":"aaf77be4942c","visdat":{"aaf77be4942c":["function (y) ","x"],"aaf75bbc143f":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</section>
+<section id="sectors-and-data-types" class="slide level2">
+<h2>Sectors and Data Types</h2>
+<div id="htmlwidget-ebe54bf86fa6c52f83e0" style="width:768px;height:576px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ebe54bf86fa6c52f83e0">{"x":{"data":[{"orientation":"v","width":[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],"base":[25.5074186784629,28.6814580513922,47.5686208932037,53.2446161417795,66.4365608462131,75.4871727849957,75.3636050880101,81.6229513290117],"x":[3,4,5,6,7,8,9,10],"y":[14.0885864780267,14.6039679183285,17.648490356052,14.0778748224318,16.7826020212931,14.28551418721,20.830504587616,20.7253393437446],"text":["datatype: Confidential<br />sector: Transport<br />log(totalrecordsstolen): 14.08859","datatype: Confidential<br />sector: Academic<br />log(totalrecordsstolen): 14.60397","datatype: Confidential<br />sector: Telecoms<br />log(totalrecordsstolen): 17.64849","datatype: Confidential<br />sector: Retail<br />log(totalrecordsstolen): 14.07787","datatype: Confidential<br />sector: Healthcare<br />log(totalrecordsstolen): 16.78260","datatype: Confidential<br />sector: Financial<br />log(totalrecordsstolen): 14.28551","datatype: Confidential<br />sector: Government<br />log(totalrecordsstolen): 20.83050","datatype: Confidential<br />sector: Web<br />log(totalrecordsstolen): 20.72534"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(240,249,232,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Confidential","legendgroup":"Confidential","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],"base":[16.3727378693319,14.0505826801438,33.0599631546795,33.7886143196232,50.8982836905077,56.0846570439618,54.6340292013677,63.1475930237686],"x":[2,4,5,6,7,8,9,10],"y":[11.5129254649702,14.6308753712485,14.5086577385242,19.4560018221563,15.5382771557054,19.4025157410339,20.7295758866424,18.4753583052431],"text":["datatype: Financial<br />sector: Energy<br />log(totalrecordsstolen): 11.51293","datatype: Financial<br />sector: Academic<br />log(totalrecordsstolen): 14.63088","datatype: Financial<br />sector: Telecoms<br />log(totalrecordsstolen): 14.50866","datatype: Financial<br />sector: Retail<br />log(totalrecordsstolen): 19.45600","datatype: Financial<br />sector: Healthcare<br />log(totalrecordsstolen): 15.53828","datatype: Financial<br />sector: Financial<br />log(totalrecordsstolen): 19.40252","datatype: Financial<br />sector: Government<br />log(totalrecordsstolen): 20.72958","datatype: Financial<br />sector: Web<br />log(totalrecordsstolen): 18.47536"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(186,228,188,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Financial","legendgroup":"Financial","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.5,0.5,0.5,0.5,0.5,0.5,0.5],"base":[14.6484196808994,16.0215847505775,17.7648293481361,34.6758280242251,38.7635890890112,37.3595406174528,41.5272556097854],"x":[3,5,6,7,8,9,10],"y":[10.8589989975636,17.038378404102,16.0237849714871,16.2224556662826,17.3210679549507,17.2744885839149,21.6203374139832],"text":["datatype: Opensource<br />sector: Transport<br />log(totalrecordsstolen): 10.85900","datatype: Opensource<br />sector: Telecoms<br />log(totalrecordsstolen): 17.03838","datatype: Opensource<br />sector: Retail<br />log(totalrecordsstolen): 16.02378","datatype: Opensource<br />sector: Healthcare<br />log(totalrecordsstolen): 16.22246","datatype: Opensource<br />sector: Financial<br />log(totalrecordsstolen): 17.32107","datatype: Opensource<br />sector: Government<br />log(totalrecordsstolen): 17.27449","datatype: Opensource<br />sector: Web<br />log(totalrecordsstolen): 21.62034"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(123,204,196,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Opensource","legendgroup":"Opensource","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],"base":[0,0,0,0,0,16.293056853346,19.6115987034045,18.2463273568076,19.2190884351698],"x":[2,3,4,5,6,7,8,9,10],"y":[16.3727378693319,14.6484196808994,14.0505826801438,16.0215847505775,17.7648293481361,18.3827711708791,19.1519903856067,19.1132132606452,22.3081671746156],"text":["datatype: Personal<br />sector: Energy<br />log(totalrecordsstolen): 16.37274","datatype: Personal<br />sector: Transport<br />log(totalrecordsstolen): 14.64842","datatype: Personal<br />sector: Academic<br />log(totalrecordsstolen): 14.05058","datatype: Personal<br />sector: Telecoms<br />log(totalrecordsstolen): 16.02158","datatype: Personal<br />sector: Retail<br />log(totalrecordsstolen): 17.76483","datatype: Personal<br />sector: Healthcare<br />log(totalrecordsstolen): 18.38277","datatype: Personal<br />sector: Financial<br />log(totalrecordsstolen): 19.15199","datatype: Personal<br />sector: Government<br />log(totalrecordsstolen): 19.11321","datatype: Personal<br />sector: Web<br />log(totalrecordsstolen): 22.30817"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(67,162,202,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Personal","legendgroup":"Personal","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.5,0.5,0.5,0.5,0.5],"base":[0,0,0,0,0],"x":[1,7,8,9,10],"y":[16.2578575933335,16.293056853346,19.6115987034045,18.2463273568076,19.2190884351698],"text":["datatype: Secret<br />sector: Legal<br />log(totalrecordsstolen): 16.25786","datatype: Secret<br />sector: Healthcare<br />log(totalrecordsstolen): 16.29306","datatype: Secret<br />sector: Financial<br />log(totalrecordsstolen): 19.61160","datatype: Secret<br />sector: Government<br />log(totalrecordsstolen): 18.24633","datatype: Secret<br />sector: Web<br />log(totalrecordsstolen): 19.21909"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(8,104,172,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Secret","legendgroup":"Secret","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":25.7412480974125,"r":7.30593607305936,"b":86.4535768645358,"l":43.1050228310502},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,10.6],"tickmode":"array","ticktext":["Legal","Energy","Transport","Academic","Telecoms","Retail","Healthcare","Financial","Government","Web"],"tickvals":[1,2,3,4,5,6,7,8,9,10],"categoryorder":"array","categoryarray":["Legal","Energy","Transport","Academic","Telecoms","Retail","Healthcare","Financial","Government","Web"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-90,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Sectors","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-5.11741453363781,107.465705206394],"tickmode":"array","ticktext":["0","25","50","75","100"],"tickvals":[0,25,50,75,100],"categoryorder":"array","categoryarray":["0","25","50","75","100"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Data Stolen (in log)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":13.2835201328352},"y":1},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"aaf754e9dd43":{"fill":{},"x":{},"y":{},"type":"bar"}},"cur_data":"aaf754e9dd43","visdat":{"aaf754e9dd43":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</section>
+<section id="data-and-leak-types" class="slide level2">
+<h2>Data and Leak Types</h2>
+<h3 id="roughly-half-of-all-data-types-were-breached-due-to-human-error"><small>Roughly half of all data types were breached due to <strong>Human Error</strong>!</small></h3>
+<div id="htmlwidget-791c8eeb214ac12316e6" style="width:768px;height:576px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-791c8eeb214ac12316e6">{"x":{"data":[{"orientation":"v","width":[0.6,0.6,0.6,0.6,0.6],"base":[0.478438331128881,0.494557151464311,0.516166410402949,0.515194172530538,0.521383995699594],"x":[1,2,3,4,5],"y":[0.521561668871119,0.505442848535689,0.483833589597051,0.484805827469462,0.478616004300406],"text":["leaktype: Human Error<br />datatype: Confidential<br />log(totalrecordsstolen): 0.5215617","leaktype: Human Error<br />datatype: Financial<br />log(totalrecordsstolen): 0.5054428","leaktype: Human Error<br />datatype: Opensource<br />log(totalrecordsstolen): 0.4838336","leaktype: Human Error<br />datatype: Personal<br />log(totalrecordsstolen): 0.4848058","leaktype: Human Error<br />datatype: Secret<br />log(totalrecordsstolen): 0.4786160"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(228,26,28,0.7)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"name":"Human Error","legendgroup":"Human Error","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.6,0.6,0.6,0.6,0.6],"base":[0,0,0,0,0],"x":[1,2,3,4,5],"y":[0.478438331128881,0.494557151464311,0.516166410402949,0.515194172530538,0.521383995699594],"text":["leaktype: Malicious Intent<br />datatype: Confidential<br />log(totalrecordsstolen): 0.4784383","leaktype: Malicious Intent<br />datatype: Financial<br />log(totalrecordsstolen): 0.4945572","leaktype: Malicious Intent<br />datatype: Opensource<br />log(totalrecordsstolen): 0.5161664","leaktype: Malicious Intent<br />datatype: Personal<br />log(totalrecordsstolen): 0.5151942","leaktype: Malicious Intent<br />datatype: Secret<br />log(totalrecordsstolen): 0.5213840"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(55,126,184,0.7)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"name":"Malicious Intent","legendgroup":"Malicious Intent","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":25.7412480974125,"r":7.30593607305936,"b":39.6955859969559,"l":48.9497716894977},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,5.6],"tickmode":"array","ticktext":["Confidential","Financial","Opensource","Personal","Secret"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Confidential","Financial","Opensource","Personal","Secret"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Data Type","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":["0%","25%","50%","75%","100%"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0%","25%","50%","75%","100%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Percent of Data Stolen","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":1},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"aaf72a0e8405":{"fill":{},"x":{},"y":{},"type":"bar"}},"cur_data":"aaf72a0e8405","visdat":{"aaf72a0e8405":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</section>
+<section id="breaches-in-sectors-by-leak-types" class="slide level2">
+<h2>Breaches in Sectors by Leak Types</h2>
+<h3 id="of-data-breaches-within-the-government-sector-were-due-to-human-error-underlinethatspace-couldspace-havespace-beenspace-prevented"><small><strong>93%</strong> of data breaches within the government sector were due to <strong>Human Error</strong> <span class="math inline">\(\underline{that\space could\space have\space been\space prevented!}\)</span> </small></h3>
+<div id="htmlwidget-b2bf71164be716509a43" style="width:768px;height:576px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b2bf71164be716509a43">{"x":{"data":[{"orientation":"v","width":[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],"base":[0.0699025847733076,0.203144104803493,0.321876704855428,0.735601063953677,0.790240349599417,0.799483547496891,0.843559640451784,0.972794753316441],"x":[1,2,3,4,5,6,7,8],"y":[0.930097415226692,0.796855895196507,0.678123295144572,0.264398936046323,0.209759650400583,0.200516452503109,0.156440359548216,0.0272052466835594],"text":["leaktype: Human Error<br />sector: Government<br />totalrecordsstolen: 0.93009742","leaktype: Human Error<br />sector: Academic<br />totalrecordsstolen: 0.79685590","leaktype: Human Error<br />sector: Transport<br />totalrecordsstolen: 0.67812330","leaktype: Human Error<br />sector: Web<br />totalrecordsstolen: 0.26439894","leaktype: Human Error<br />sector: Telecoms<br />totalrecordsstolen: 0.20975965","leaktype: Human Error<br />sector: Healthcare<br />totalrecordsstolen: 0.20051645","leaktype: Human Error<br />sector: Retail<br />totalrecordsstolen: 0.15644036","leaktype: Human Error<br />sector: Financial<br />totalrecordsstolen: 0.02720525"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(228,26,28,0.7)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"name":"Human Error","legendgroup":"Human Error","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5],"base":[0,0,0,0,0,0,0,0,0,0],"x":[1,2,3,4,5,6,7,8,9,10],"y":[0.0699025847733076,0.203144104803493,0.321876704855428,0.735601063953677,0.790240349599417,0.799483547496891,0.843559640451784,0.972794753316441,1,1],"text":["leaktype: Malicious Intent<br />sector: Government<br />totalrecordsstolen: 0.06990258","leaktype: Malicious Intent<br />sector: Academic<br />totalrecordsstolen: 0.20314410","leaktype: Malicious Intent<br />sector: Transport<br />totalrecordsstolen: 0.32187670","leaktype: Malicious Intent<br />sector: Web<br />totalrecordsstolen: 0.73560106","leaktype: Malicious Intent<br />sector: Telecoms<br />totalrecordsstolen: 0.79024035","leaktype: Malicious Intent<br />sector: Healthcare<br />totalrecordsstolen: 0.79948355","leaktype: Malicious Intent<br />sector: Retail<br />totalrecordsstolen: 0.84355964","leaktype: Malicious Intent<br />sector: Financial<br />totalrecordsstolen: 0.97279475","leaktype: Malicious Intent<br />sector: Legal<br />totalrecordsstolen: 1.00000000","leaktype: Malicious Intent<br />sector: Energy<br />totalrecordsstolen: 1.00000000"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(55,126,184,0.7)","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"name":"Malicious Intent","legendgroup":"Malicious Intent","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":25.7412480974125,"r":7.30593607305936,"b":86.4535768645358,"l":48.9497716894977},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,10.6],"tickmode":"array","ticktext":["Government","Academic","Transport","Web","Telecoms","Healthcare","Retail","Financial","Legal","Energy"],"tickvals":[1,2,3,4,5,6,7,8,9,10],"categoryorder":"array","categoryarray":["Government","Academic","Transport","Web","Telecoms","Healthcare","Retail","Financial","Legal","Energy"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-90,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Sectors","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.05,1.05],"tickmode":"array","ticktext":["0%","25%","50%","75%","100%"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0%","25%","50%","75%","100%"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Percent of Data Stolen","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":1},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"aaf72164f52a":{"fill":{},"x":{},"y":{},"type":"bar"}},"cur_data":"aaf72164f52a","visdat":{"aaf72164f52a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</section>
+<section id="thank-you" class="slide level2">
+<h2><strong>Thank You!</strong></h2>
+</section>
+    </div>
+  </div>
+
+  <script src="Jigyasa_midtermproject_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="Jigyasa_midtermproject_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+        // Transition style
+        transition: 'concave', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'Jigyasa_midtermproject_files/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
